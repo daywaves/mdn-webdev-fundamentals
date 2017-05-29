@@ -10,35 +10,66 @@ html {
   background-color: #ccc;
 }
 
-/* Selectors to be matched up with rulesets */
+/* Card container styles */
 
-.card article img
-.card footer
-.card header
-.card
-
-/* Rulesets to be matched up with selectors */
-
-{
+/* 0010 */
+.card {
   width: 35em;
   height: 22em;
   margin: 5em auto;
-  background-colour: red;
+  background-color: red;
   border: 0.2em solid black;
   border-radius: 1.5em;
 }
 
-{
+.card h2, .card p {
+  margin : 0;
+}
+
+/* Header & footer styles */
+
+/* 0011 */
+.card header {
   background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
   border-radius: 1.5em 1.5em 0 0;
 }
 
-{
+/* 0011 */
+.card footer {
   background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.1));
   border-radius: 0 0 1.5em 1.5em;
 }
 
-{
-  max-height: 100%
+.card header,
+.card footer {
+  height: 3em;
+  padding: 1em;
+}
+
+.card header h2 {
+  font-size: 2em;
+  line-height: 1.5;
+}
+
+.card footer p {
+  font-size: 1.5em;
+  line-height: 2;
+}
+
+/* Business card content styles */
+
+/* 0012 */
+.card article img {
+  max-height: 100%;
   float: right;
+}
+
+.card article {
+  height: 12em;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.card article p {
+  padding: 1em;
+  color: #eee;
 }
