@@ -1,0 +1,29 @@
+html {
+  font-family: sans-serif;
+}
+
+form {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px 5%;
+  width: 508px;
+  box-sizing: border-box;
+}
+
+form label {
+  text-align: right;
+  grid-column: auto / span 2;
+}
+
+form input {
+  width: 100%;
+  grid-column: auto / span 3;
+}
+
+form p {
+  color: #999;
+  font-style: italic;
+  grid-row: 4;
+  grid-column: auto / span 5;
+}
