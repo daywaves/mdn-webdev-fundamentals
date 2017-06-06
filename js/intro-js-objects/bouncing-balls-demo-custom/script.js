@@ -120,10 +120,18 @@ EvilCircle.prototype.draw = function() {
 
 EvilCircle.prototype.update = function() {
   // handle input
-  if (this.pressedKeys['ArrowUp']) this.y -= this.velY;
-  if (this.pressedKeys['ArrowDown']) this.y += this.velY;
-  if (this.pressedKeys['ArrowLeft']) this.x -= this.velX;
-  if (this.pressedKeys['ArrowRight']) this.x += this.velX;
+  if (this.pressedKeys['ArrowUp'] || this.pressedKeys['w']) {
+    this.y -= this.velY;
+  }
+  if (this.pressedKeys['ArrowDown'] || this.pressedKeys['s']) {
+    this.y += this.velY;
+  }
+  if (this.pressedKeys['ArrowLeft'] || this.pressedKeys['a']) {
+    this.x -= this.velX;
+  }
+  if (this.pressedKeys['ArrowRight'] || this.pressedKeys['d']) {
+    this.x += this.velX;
+  }
 
   // bounds check
   if (this.x + this.size >= width) {
