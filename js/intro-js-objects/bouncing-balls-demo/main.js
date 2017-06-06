@@ -13,8 +13,6 @@ function random(min, max) {
   return num;
 }
 
-// define Ball constructor
-
 function Ball(x, y, velX, velY, color, size) {
   this.x = x;
   this.y = y;
@@ -24,16 +22,12 @@ function Ball(x, y, velX, velY, color, size) {
   this.size = size;
 }
 
-// define ball draw method
-
 Ball.prototype.draw = function() {
   ctx.beginPath();
   ctx.fillStyle = this.color;
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
   ctx.fill();
 };
-
-// define ball update method
 
 Ball.prototype.update = function() {
   if (this.x + this.size >= width) {
@@ -56,8 +50,6 @@ Ball.prototype.update = function() {
   this.y += this.velY;
 };
 
-// define ball collision detection
-
 Ball.prototype.collisionDetect = function() {
   for (var j = 0; j < balls.length; j++) {
     if (!(this === balls[j])) {
@@ -79,14 +71,10 @@ Ball.prototype.collisionDetect = function() {
   }
 };
 
-// define array to store balls
-
 var balls = [];
 
-// define loop that keeps drawing the scene constantly
-
 function loop() {
-  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
 
   while (balls.length < 25) {
