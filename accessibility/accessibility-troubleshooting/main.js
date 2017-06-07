@@ -1,18 +1,36 @@
 // functionality for showing/hiding the comments section
 
-var showHideBtn = document.querySelector('.show-hide');
+var showHideCommentsButton = document.querySelector('#show-hide-comments');
 var commentWrapper = document.querySelector('.comment-wrapper');
 
 commentWrapper.style.display = 'none';
 
-showHideBtn.onclick = function() {
-  var showHideText = showHideBtn.textContent;
-  if(showHideText === 'Show comments') {
-    showHideBtn.textContent = 'Hide comments';
+showHideCommentsButton.onclick = function() {
+  var showHideText = showHideCommentsButton.textContent;
+  if (showHideText === 'Show comments') {
+    showHideCommentsButton.textContent = 'Hide comments';
     commentWrapper.style.display = 'block';
   } else {
-    showHideBtn.textContent = 'Show comments';
+    showHideCommentsButton.textContent = 'Show comments';
     commentWrapper.style.display = 'none';
+  }
+};
+
+// functionality for showing/hiding the audio transcript
+
+var showHideTranscriptButton = document.querySelector('#show-hide-transcript');
+var transcriptElement = document.querySelector('.transcript');
+
+transcriptElement.style.display = 'none';
+
+showHideTranscriptButton.onclick = function() {
+  var showHideText = showHideTranscriptButton.textContent;
+  if (showHideText === 'Show transcript') {
+    showHideTranscriptButton.textContent = 'Hide transcript';
+    transcriptElement.style.display = 'block';
+  } else {
+    showHideTranscriptButton.textContent = 'Show transcript';
+    transcriptElement.style.display = 'none';
   }
 };
 
