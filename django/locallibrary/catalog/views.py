@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Book, Author, BookInstance, Genre
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 # Create your views here.
@@ -42,6 +42,19 @@ class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
+
+
+class LoanedBooksListview(PermissionRequiredMixin, generic.ListView):
+    """
+    Generic class-based view listing all books currently loaned out.
+    """
+    model = BookInstance
+    template_name = 'catalog/bookinstance_list_borrowed.html'
+    paginate_by = 10
+    permission_required = 'catalog.can_mark_returned'
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(status__exact='o').order_by('due_back')
 
 
 class BookListView(generic.ListView):
