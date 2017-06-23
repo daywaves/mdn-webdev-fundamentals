@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from .models import Book, Author, BookInstance, Genre
-from .forms import RenewBookForm
+from .forms import RenewBookModelForm
 
 
 # Create your views here.
@@ -95,7 +95,7 @@ def renew_book_librarian(request, pk):
     if request.method == 'POST':
 
         # Create a form instance and populate it with data from the request (binding):
-        form = RenewBookForm(request.POST)
+        form = RenewBookModelForm(request.POST)
 
         # Check if the form is valid:
         if form.is_valid():
@@ -109,6 +109,6 @@ def renew_book_librarian(request, pk):
     # If this is a GET (or any other method) create the default form.
     else:
         proposed_renewal_date = datetime.date.today() + datetime.timedelta(weeks=3)
-        form = RenewBookForm(initial={'renewal_date': proposed_renewal_date, })
+        form = RenewBookModelForm(initial={'renewal_date': proposed_renewal_date, })
 
     return render(request, 'catalog/book_renew_librarian.html', {'form': form, 'bookinst': book_inst})
